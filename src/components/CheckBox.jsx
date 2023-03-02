@@ -9,7 +9,7 @@ export const CheckBox = ({
   onCheckedItem,
 }) => {
   return (
-    <li className={`checkbox flex items-center w-1/2 mb-[10px] ${styles}`}>
+    <li className={`checkbox flex items-center w-1/2 w-max ${styles}`}>
       <input
         className="cursor-pointer mr-[10px]"
         type="checkbox"

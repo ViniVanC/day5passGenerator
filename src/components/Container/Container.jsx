@@ -11,7 +11,7 @@ export const Container = () => {
   const { generatePass } = usePass();
 
   return (
-    <div className=" max-w-[500px] p-10 rounded-[20px] bg-[#dfd0bb] text-[#933d2c]">
+    <div className=" max-w-[500px]  p-5 sm:p-10 rounded-[20px] bg-[#dfd0bb] text-[#933d2c]">
       <ContainerHeader title={"Pass Generator"} />
 
       <Pass />

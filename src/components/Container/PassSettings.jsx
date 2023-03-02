@@ -11,7 +11,7 @@ export const PassSettings = () => {
       <p className="flex items-center justify-between text-[20px] mb-[10px]">
         Pass Settings
       </p>
-      <ul className="flex flex-wrap">
+      <ul className="grid grid-rows-2 sm:grid-cols-2 gap-[30px]">
         {characters.map((item) => (
           <CheckBox
             key={item.value}
