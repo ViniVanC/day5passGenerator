@@ -1,83 +1,26 @@
 import React from "react";
-import { CheckBox } from "../CheckBox";
 import { Button } from "../Button";
 import { usePass } from "../../hooks/usePass";
 import { ContainerHeader } from "./ContainerHeader";
+import { Pass } from "./Pass";
+import { PassIndicator } from "./PassIndicator";
+import { PassLengthInput } from "./PassLengthInput";
+import { PassSettings } from "./PassSettings";
 
 export const Container = () => {
-  const {
-    characters,
-    randomPass,
-    lengthPass,
-    setLengthPass,
-    passIndicator,
-    copyPass,
-    onCopyPassword,
-    onCheckedItem,
-    generatePass,
-  } = usePass();
+  const { generatePass } = usePass();
 
   return (
     <div className=" max-w-[500px] p-10 rounded-[20px] bg-[#dfd0bb] text-[#933d2c]">
       <ContainerHeader title={"Pass Generator"} />
 
-      <div className="flex items-center text-[20px] border-[2px] border-solid border-[#933d2c] rounded-[10px] p-[10px] mb-[10px]">
-        {/* input в якому буде згенерований пароль */}
-        <input
-          className="bg-transparent w-full"
-          type="text"
-          disabled
-          value={randomPass}
-        />
-        {/* символ для копіювання */}
-        <span
-          className={"material-symbols-rounded cursor-pointer"}
-          onClick={onCopyPassword}
-        >
-          {copyPass ? "check" : "copy_all"}
-        </span>
-      </div>
+      <Pass />
 
-      {/* індикатор надійності пароля */}
-      <div
-        className={`h-[3px] rounded-[10px] ${passIndicator} mb-[20px] transition-all duration-300 ease-in-out`}
-      />
+      <PassIndicator />
 
-      {/* регулятор довжини пароля */}
-      <div className="mb-[20px]">
-        <p className="flex items-center justify-between text-[20px]">
-          Password length
-          <span className="text-[16px] font-bold">{lengthPass}</span>
-        </p>
-        <input
-          className="w-full h-[3px]"
-          type="range"
-          min="4"
-          max="30"
-          step="1"
-          value={lengthPass}
-          onChange={(e) => setLengthPass(e.target.value)}
-        />
-      </div>
+      <PassLengthInput />
 
-      {/* налаштування для пароля  */}
-      <div className="mb-[20px]">
-        <p className="flex items-center justify-between text-[20px] mb-[10px]">
-          Pass Settings
-        </p>
-        <ul className="flex flex-wrap">
-          {characters.map((item) => (
-            <CheckBox
-              key={item.value}
-              id={item.id}
-              text={item.text}
-              disabled={item.disabled}
-              status={item.status}
-              onCheckedItem={onCheckedItem}
-            />
-          ))}
-        </ul>
-      </div>
+      <PassSettings />
 
       <Button text={"generate pass"} onClick={generatePass} />
     </div>
