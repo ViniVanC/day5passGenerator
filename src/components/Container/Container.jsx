@@ -1,23 +1,25 @@
 import React from "react";
-import { CheckBox } from "./CheckBox";
-import { Button } from "./Button";
+import { CheckBox } from "../CheckBox";
+import { Button } from "../Button";
+import { usePass } from "../../hooks/usePass";
+import { ContainerHeader } from "./ContainerHeader";
 
-export const Container = ({
-  characters,
-  randomPass,
-  lengthPass,
-  setLengthPass,
-  passIndicator,
-  copyPass,
-  onCopyPassword,
-  onCheckedItem,
-  generatePass,
-}) => {
+export const Container = () => {
+  const {
+    characters,
+    randomPass,
+    lengthPass,
+    setLengthPass,
+    passIndicator,
+    copyPass,
+    onCopyPassword,
+    onCheckedItem,
+    generatePass,
+  } = usePass();
+
   return (
     <div className=" max-w-[500px] p-10 rounded-[20px] bg-[#dfd0bb] text-[#933d2c]">
-      <h1 className="text-[30px] font-bold mb-[5px]">Pass Generator</h1>
-
-      <hr className="border-b-[1px] border-solid border-[#933d2c86] mb-[20px]" />
+      <ContainerHeader title={"Pass Generator"} />
 
       <div className="flex items-center text-[20px] border-[2px] border-solid border-[#933d2c] rounded-[10px] p-[10px] mb-[10px]">
         {/* input в якому буде згенерований пароль */}
